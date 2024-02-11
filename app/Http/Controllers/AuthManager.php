@@ -27,7 +27,7 @@ class AuthManager extends Controller
         ]);
         $credentials = $request->only('name', 'password');
         if(Auth::attempt($credentials)){
-            return redirect()->intended(route('welcome'));
+            return redirect()->intended(route('home'));
         }
         return redirect(route('login'))->with("error", "Login details are not valid");
     }
@@ -36,6 +36,7 @@ class AuthManager extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required',
             'role' => 'required|in:student,admin', // Validate the role field
+            
         ]);
     
         $user = User::create([
@@ -43,6 +44,7 @@ class AuthManager extends Controller
             'email' => $request->email,
             'role' => $request->role,
             'password' => Hash::make($request->password),
+            
         ]);
     
         if(!$user){
