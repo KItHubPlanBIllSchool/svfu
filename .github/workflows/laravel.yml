@@ -35,7 +35,7 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
       run: |
-        mysql -e 'CREATE DATABASE IF NOT EXISTS svfu;'
+        mysql -S "C:\xampp\mysql\mysql.sock" -e 'CREATE DATABASE IF NOT EXISTS svfu;'
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: mysql
