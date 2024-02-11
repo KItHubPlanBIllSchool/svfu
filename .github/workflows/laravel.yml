@@ -35,7 +35,8 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
       run: |
-        mysql -h localhost -P 3306 -u root -p -e "CREATE DATABASE IF NOT EXISTS svfu;"
+        mysql -h localhost -P 3306 -u root -p --protocol=TCP -e 'CREATE DATABASE IF NOT EXISTS svfu;'
+
 
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
