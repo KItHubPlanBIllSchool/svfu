@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('pic');
             $table->string('header');
             $table->string('description');
+            $table->string('location');
             $table->string('datetime');
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('events');
     }
 };

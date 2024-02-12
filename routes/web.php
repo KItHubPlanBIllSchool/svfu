@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthManager;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\RaspisanieController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,12 +16,13 @@ use App\Http\Controllers\NewsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+
 Route::get('/', [NewsController::class, 'index'])->name('home');
+Route::get('/events', [EventController::class, 'index1'])->name('events');
+Route::get('/raspisanie', [RaspisanieController::class, 'check'])->name('raspis');
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 Route::post('/login', [AuthManager::class, 'loginpost'])->name('login.post');
+Route::post('registerevent', [EventController::class, 'index'])->name('registerevent');
 Route::get('/register', [AuthManager::class, 'registration'])->name('register');
 Route::post('/registration', [AuthManager::class, 'registrationpost'])->name('registration.post');

@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Website Title</title>
+    <title>Yvent</title>
    
 	@vite('resources/css/app.css')
 </head>
 <body class="bg-gray-100">
     <div class="bg-gray-800 text-white flex justify-between items-center p-4">
-        <span class="text-xl font-bold">Your Website Logo</span>
-        
-        <!-- Search bar component - replace with your actual Livewire component -->
-        <div>
-            Livewire Search Bar Component
-        </div>
-        
+        <span class="text-xl font-bold">Yvent</span>
+        <a href="{{route('events')}}">События</a> 
+        <a href="{{route('home')}}">Новостная лента</a> 
+        <div>h1</div> 
         <div class="flex items-center space-x-4">
+        
             @if (Auth::check())
                 <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="text-white bg-blue-600 hover:bg-[#3E3D5F] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center " type="button">Личный кабинет<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
@@ -25,6 +23,7 @@
                         {{auth()->user()->name}}
                         {{auth()->user()->email}}
                         {{auth()->user()->role}}
+                        {{auth()->user()->id}}
                     </div>
                 <div class="py-2">
                     <a href="{{route('logout')}}" class="block px-4 py-2 text-sm text-gray-700 ">Sign out</a>
