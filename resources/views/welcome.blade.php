@@ -11,6 +11,7 @@
 <body>
 
 @section('content')
+<h1 class="mt-8 text-3xl font-semibold text-center">Новости</h1>
 <div x-data="{ openItemId: null, openAddEventForm: false }">
     
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -33,19 +34,19 @@
 
     <div x-show="openAddEventForm" class="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full bg-black bg-opacity-25">
         <div @c;ick.away="openAddEventForm = false" class="w-full p-4 bg-white rounded-lg shadow-lg sm:w-2/3 md:w-1/2 sm:p-8">
-            <h3 class="text-lg font-semibold sm:text-xl">Add Another Event</h3>
+            <h3 class="text-lg font-semibold sm:text-xl">Добавить Новость</h3>
             <form action="{{ route('addnews') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <label for="header">Event Header:</label>
+                <label for="header">Заголовок:</label>
                 <input type="text" name="header" id="header" class="block w-full p-2 mt-2 border rounded-lg">
                 
-                <label for="description">Event Description:</label>
+                <label for="description">Описание:</label>
                 <textarea name="description" id="description" class="block w-full p-2 mt-2 border rounded-lg" rows="3"></textarea>
                 
-                <label for="datetime">Event Date and Time:</label>
+                <label for="datetime">Дата публикации:</label>
                 <input type="datetime-local" name="datetime" id="datetime" class="block w-full p-2 mt-2 border rounded-lg">
                 
-                <label for="pic">Event Image:</label>
+                <label for="pic">Картинка:</label>
                 <input type="file" name="pic" id="pic" accept="image/*" class="block w-full p-2 mt-2 border rounded-lg">
                 
                 <button type="submit" class="px-4 py-2 mt-4 text-white bg-blue-500 rounded-lg">Add Event</button>
@@ -53,17 +54,19 @@
         </div>
     </div>
 
-    @foreach($news as $new)
-        <template x-if="openItemId === {{ $new->id }}">
-            <div x-show="openItemId === {{ $new->id }}" class="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full bg-black bg-opacity-25">
-                <div @click.away="openItemId = null" class="p-4 bg-white rounded-lg shadow-lg sm:p-8">
+    <div x-show="openItemId" class="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full bg-black bg-opacity-25">
+    <div @click.away="openItemId = null" class="p-4 bg-white rounded-lg shadow-lg sm:p-8">
+        @foreach($news as $new)
+            <template x-if="openItemId === {{ $new->id }}">
+                <div x-show="openItemId === {{ $new->id }}" class="p-4 bg-white rounded-lg shadow-lg sm:p-8">
                     <h3 class="text-lg font-semibold">{{ $new->header }}</h3>
                     <p class="text-sm">{{ $new->description }}</p>
                     <p class="text-xs">{{ $new->datetime }}</p>
                 </div>
-            </div>
-        </template>
-    @endforeach
+            </template>
+        @endforeach
+    </div>
+</div>
 </div>
 @endsection
 

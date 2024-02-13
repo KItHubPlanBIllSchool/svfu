@@ -23,6 +23,7 @@
             </div>
             <button type="submit" class="w-full py-2 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600">Login</button>
         </form>
+        <p class="mt-4 text-center">Don't have an account? <a href="{{ route('register') }}" class="text-blue-500 hover:underline">Sign Up</a></p>
     </div>
     
     @livewireScripts

@@ -16,7 +16,7 @@
     openItemId: null,
     openAddEventForm: false,
 }">
-    
+    <h1 class="mt-8 text-3xl font-semibold text-center">Грядущие мероприятия</h1>
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:3">
         @foreach($events as $event)
         
@@ -38,22 +38,22 @@
 
     <div x-show="openAddEventForm" class="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full bg-black bg-opacity-25">
         <div @click.away="openAddEventForm = false" class="w-1/3 p-8 bg-white rounded-lg shadow-lg">
-            <h3 class="text-xl font-semibold">Add Another Event</h3>
+            <h3 class="text-xl font-semibold">Добавить событие</h3>
             <form action="{{ route('addevent') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <label for="header">Event Header:</label>
+                <label for="header">Заголовок:</label>
                 <input type="text" name="header" id="header" class="block w-full p-2 mt-2 border rounded-lg">
                 
-                <label for="description">Event Description:</label>
+                <label for="description">Описание:</label>
                 <textarea name="description" id="description" class="block w-full p-2 mt-2 border rounded-lg" rows="3"></textarea>
                 
-                <label for="location">Event Location:</label>
+                <label for="location">Где будет:</label>
                 <input type="text" name="location" id="location" class="block w-full p-2 mt-2 border rounded-lg">
                 
-                <label for="event_date_time">Event Date and Time:</label>
+                <label for="event_date_time">Дата назначения мероприятия:</label>
                 <input type="datetime-local" name="event_date_time" id="event_date_time" class="block w-full p-2 mt-2 border rounded-lg">
                 
-                <label for="pic">Event Image:</label>
+                <label for="pic">Картинка:</label>
                 <input type="file" name="pic" id="pic" accept="image/*" class="block w-full p-2 mt-2 border rounded-lg">
                 
                 <button type="submit" class="px-4 py-2 mt-4 text-white bg-blue-500 rounded-lg">Add Event</button>

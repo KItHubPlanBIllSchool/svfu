@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthManager;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\MapController;
+use App\Http\Controllers\LkController;
 use App\Http\Controllers\RaspisanieController;
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +22,11 @@ use App\Http\Controllers\RaspisanieController;
 Route::get('/', [NewsController::class, 'index'])->name('home');
 Route::post('addnews', [NewsController::class, 'index2'])->name('addnews');
 Route::get('/events', [EventController::class, 'index1'])->name('events');
-Route::get('/lk', [EventController::class, 'index1'])->name('lk');
+Route::get('/lk', [LkController::class, 'index'])->name('lk');
 Route::get('/map', [EventController::class, 'index1'])->name('map');
-Route::get('/raspisanie')->name('raspisanie');
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
+Route::get('map', [MapController::class, 'index'])->name('map');
 Route::post('/login', [AuthManager::class, 'loginpost'])->name('login.post');
 Route::post('registerevent', [EventController::class, 'index'])->name('registerevent');
 Route::get('/register', [AuthManager::class, 'registration'])->name('register');

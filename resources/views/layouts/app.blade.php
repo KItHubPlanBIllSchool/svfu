@@ -30,7 +30,7 @@
     <div class="items-center space-x-4">
         <div class="flex-container">
             <a href="{{ route('events') }}"><img src="img/Group 1564.svg"></a>
-            <a href="{{ route('raspisanie') }}"><img src="img/Group 1565.svg"></a>
+            <a href="{{ route('home') }}"><img src="img/Group 1565.svg"></a>
             <a href="{{ route('home') }}"><img src="img/vuesax.svg"></a>
 
             
