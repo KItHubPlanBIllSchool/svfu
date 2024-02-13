@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('header');
             $table->string('description');
             $table->string('location');
-            $table->string('datetime');
+            $table->timestamp('datetime');
         });
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Events extends Model
 {
+    public $timestamps = false;
     protected $table = 'events';
     protected $fillable = ['id','pic', 'header', 'description','location', 'datetime'];
     public function registeredEvents()

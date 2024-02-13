@@ -18,11 +18,15 @@ use App\Http\Controllers\RaspisanieController;
 
 
 Route::get('/', [NewsController::class, 'index'])->name('home');
+Route::post('addnews', [NewsController::class, 'index2'])->name('addnews');
 Route::get('/events', [EventController::class, 'index1'])->name('events');
-Route::get('/raspisanie', [RaspisanieController::class, 'check'])->name('raspis');
+Route::get('/lk', [EventController::class, 'index1'])->name('lk');
+Route::get('/map', [EventController::class, 'index1'])->name('map');
+Route::get('/raspisanie')->name('raspisanie');
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 Route::post('/login', [AuthManager::class, 'loginpost'])->name('login.post');
 Route::post('registerevent', [EventController::class, 'index'])->name('registerevent');
 Route::get('/register', [AuthManager::class, 'registration'])->name('register');
 Route::post('/registration', [AuthManager::class, 'registrationpost'])->name('registration.post');
+Route::post('addevent', [EventController::class, 'index2'])->name('addevent');

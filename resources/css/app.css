@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.flex-container > div {
+    display: flex;
+    align-items: center;
+}
+.flex-container a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+

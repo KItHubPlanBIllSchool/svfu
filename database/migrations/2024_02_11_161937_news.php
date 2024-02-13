@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('pic');
             $table->string('header');
             $table->string('description');
-            $table->string('datetime');
+            $table->timestamp('datetime');
         });
     }
 
